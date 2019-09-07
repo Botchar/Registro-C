@@ -11,19 +11,19 @@ void torneos();
 void jugadores();
 
 //Compartidos
-void localidades();
+void localidades(void);
 
 //Clubes
-void listacClubes();
-void registroClub();
+void listacClubes(void);
+void registroClub(void);
 
 //Torneos
-void calendario();
-void registroTorneos();
+void calendario(void);
+void registroTorneos(void);
 
 //Jugadores
-void rankings();
-void registroJugador();
+void rankings(void);
+void registroJugador(void);
 
 int main() {
 
@@ -32,8 +32,13 @@ int main() {
     SetConsoleCP(1252); // Cambiar STDIN -  Para máquinas Windows
     SetConsoleOutputCP(1252); // Cambiar STDOUT - Para máquinas Windows
 
-    int respuestaPrincipal = 0;
-    char validadorCaracter[0];
+    //Memoria dinamica
+    int  * respuestaPrincipal = (int *)malloc(sizeof(int));
+    char * validadorCaracter = (char *)malloc(sizeof (char));
+    //Verificacion de memoria
+
+
+
     //Ciclo del menú principal
     do{
         //Impresión del menú principal
@@ -45,13 +50,17 @@ int main() {
         wprintf(L"[4]Cerrar\n\n");
 
         //Obtenemos repsuesta principalsystem("cls");
-        scanf("%s",&validadorCaracter);
+        scanf("%s",validadorCaracter);
+
+        //free(validadorCaracter);
         /* atoi convierte el numero ingresado como cadena en entero
                    en caso de ser posible, de lo contrario retorna 0*/
-        respuestaPrincipal=atoi(validadorCaracter);
-        if(respuestaPrincipal!=0){
+
+        *respuestaPrincipal=atoi(validadorCaracter);
+
+        if(*respuestaPrincipal!=0){
             //Comparación de respuesta
-            switch (respuestaPrincipal) {
+            switch (*respuestaPrincipal) {
                 //Opciones
                 case 1:
                     system("cls");
@@ -72,26 +81,28 @@ int main() {
                 default:
                     system("cls");
                     wprintf(L"Opción invalida\n");
-                    respuestaPrincipal = 0;
+                    *respuestaPrincipal = 0;
                 break;
             }
         }else{
             system("cls");
             wprintf(L"Opción invalida\n");
-            respuestaPrincipal = 0;
+            *respuestaPrincipal = 0;
         }
 
 
-    }while(respuestaPrincipal != 4);
+    }while(*respuestaPrincipal != 4);
+    //Liberamos memoria
+    free(respuestaPrincipal);
+    free(validadorCaracter);
 
     return 0;
 }
 //Principales
 void clubes(){
-    int respuestaClub = 0;
-    char validadorClub[0];
+    int  * respuestaClub = (int *)malloc(sizeof(int));
+    char * validadorClub = (char *)malloc(sizeof (char));
     do{
-        system("cls");
         //Impresión del menú clubes
         wprintf(L"\n\n#### -- Clubes -- ####\n\n");
         wprintf(L"Selecciona una opción\n\n");
@@ -100,23 +111,27 @@ void clubes(){
         wprintf(L"[3]Gestor de localidades\n\n");
         wprintf(L"[4]Regresar\n\n");
         //Opciones
-        scanf("%s",&validadorClub);
-        respuestaClub=atoi(validadorClub);
-        if(respuestaClub!=0){
+        scanf("%s",validadorClub);
+        *respuestaClub=atoi(validadorClub);
+
+
+        if(*respuestaClub!=0){
 
         }else{
-            wprintf(L"Opción invalida\n");
-            respuestaClub = 0;
+            *respuestaClub = 0;
             system("cls");
+            wprintf(L"Opción invalida\n");
         }
-    }while(respuestaClub != 4);
 
+    }while(*respuestaClub != 4);
+    free(respuestaClub);
+    free(validadorClub);
+    system("cls");
 }
 void torneos(){
-    int respuestaTorneo = 0;
-    char validadorTorneo[0];
+    int  * respuestaTorneo = (int *)malloc(sizeof(int));
+    char * validadorTorneo = (char *)malloc(sizeof (char));
     do{
-        system("cls");
         //Impresión del menú torneos
         wprintf(L"\n\n#### -- Torneos -- ####\n\n");
         wprintf(L"Selecciona una opción\n\n");
@@ -124,22 +139,24 @@ void torneos(){
         wprintf(L"[2]Registro de torneos\n\n");
         wprintf(L"[3]Regresar\n\n");
         //Opciones
-        scanf("%s",&validadorTorneo);
-        respuestaTorneo=atoi(validadorTorneo);
-        if(respuestaTorneo!=0){
+        scanf("%s",validadorTorneo);
+        *respuestaTorneo=atoi(validadorTorneo);
+        if(*respuestaTorneo!=0){
 
         }else{
-            wprintf(L"Opción invalida\n");
-            respuestaTorneo = 0;
+            *respuestaTorneo = 0;
             system("cls");
+            wprintf(L"Opción invalida\n");
         }
-    }while(respuestaTorneo != 3);
+    }while(*respuestaTorneo != 3);
+    free(respuestaTorneo);
+    free(validadorTorneo);
+    system("cls");
 }
 void jugadores(){
-    int respuestaJugador = 0;
-    char validadorJugador[0];
+    int  * respuestaJugador = (int *)malloc(sizeof(int));
+    char * validadorJugador = (char *)malloc(sizeof (char));
     do{
-        system("cls");
         //Impresión del menú jugadores
         wprintf(L"\n\n#### -- Jugadores -- ####\n\n");
         wprintf(L"Selecciona una opción\n\n");
@@ -148,16 +165,19 @@ void jugadores(){
         wprintf(L"[3]Gestor de localidades\n\n");
         wprintf(L"[4]Regresar\n\n");
         //Opciones
-        scanf("%s",&validadorJugador);
-        respuestaJugador=atoi(validadorJugador);
-        if(respuestaJugador!=0){
+        scanf("%s",validadorJugador);
+        *respuestaJugador=atoi(validadorJugador);
+        if(*respuestaJugador!=0){
 
         }else{
-            wprintf(L"Opción invalida\n");
-            respuestaJugador = 0;
+            *respuestaJugador = 0;
             system("cls");
+            wprintf(L"Opción invalida\n");
         }
-    }while(respuestaJugador != 4);
+    }while(*respuestaJugador != 4);
+    free(respuestaJugador);
+    free(validadorJugador);
+    system("cls");
 }
 
 //Compartidos
