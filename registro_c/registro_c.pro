@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.c
+        clubes.c \
+        estructura_base.c \
+        main.c \
+        sqlite3.c
+
+HEADERS += \
+    sqlite3.h
