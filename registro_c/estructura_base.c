@@ -1,3 +1,5 @@
+#define DIRECCION_BASE "C:/xampp/htdocs/Formacion/1.-Lenguajes/1.-C/1.-Temario/56.-Proyecto Final/Registro-C/registro_c/MiBaseDatos.db"
+
 #define CREATE_TABLES \
     "CREATE TABLE IF NOT EXISTS lugar ("\
       "id_lugar INT NOT NULL,"\

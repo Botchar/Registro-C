@@ -6,14 +6,17 @@
 #include "sqlite3.h"
 
 void clubes(void){
+    //Opciones para lo terminar con memoria
     int  * respuestaClub = (int *)malloc(sizeof(int));
     char * validadorClub = (char *)malloc(sizeof (char));
+
     if(respuestaClub == NULL && validadorClub == NULL){
         system("cls");
         printf("Problema de memoria en el apartado clubes");
 
     }else{
-
+        //Instancia de sqlite
+        sqlite3 *db = NULL;
         do{
             //Impresión del menú clubes
             wprintf(L"\n\n#### -- Clubes -- ####\n\n");
